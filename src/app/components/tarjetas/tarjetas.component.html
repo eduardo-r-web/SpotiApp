@@ -1,0 +1,17 @@
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
+    <div (click)="ver(item)" *ngFor="let item of items" class="col">
+        <div class="card">
+            <img [src]="item.images | noimage" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title texto-negro">{{item.name}}</h5>
+              <span *ngFor="let artista of item.artists" class="badge rounded-pill bg-primary mx-1">{{artista.name}}</span>
+            </div>
+            <div *ngIf="item.release_date" class="card-footer">
+              <small class="text-muted">Lanzamiento: {{item.release_date}}</small>
+            </div>
+            <div *ngIf="item.followers" class="card-footer">
+              <small class="text-muted">Followers: {{item.followers['total']}}</small>
+            </div>
+        </div>
+    </div>
+</div>
